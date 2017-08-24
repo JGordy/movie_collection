@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
 body {
   background-color: #fff;
   font-family: sans-serif;
@@ -7,6 +13,7 @@ body {
   text-align: center;
   font-size: 32px;
   margin-top: 25px;
+  flex-basis: 100%;
 }
 
 #main_title a {
@@ -16,13 +23,14 @@ body {
 
 .container {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .entryForm {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 300px;
+  flex-basis: 25%;
   margin: 20px;
   /*position: fixed;*/
 }
@@ -59,6 +67,7 @@ input::placeholder {
   flex-flow: row wrap;
   height: 500px;
   overflow: scroll;
+  flex-basis: 65%;
 }
 
 .single_movie {
@@ -71,13 +80,15 @@ input::placeholder {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 325px;
 }
 
 .movie_title {
   color: #2AAFC7;
   padding-left: 10px;
   padding-right: 10px;
-  margin-bottom: 0px;
+  margin-bottom: 5px;
+  margin-top: 10px;
 }
 
 .yearGenre {
@@ -103,16 +114,19 @@ input::placeholder {
 .characters {
   color: gray;
   padding-left: 10px;
+  margin: 5px;
 }
 
 .cast {
   color: gray;
   padding-left: 10px;
+  margin: 5px;
 }
 
 .director {
   color: gray;
   padding-left: 10px;
+  margin: 5px;
 }
 
 .links {
@@ -148,4 +162,78 @@ input::placeholder {
   border-bottom-right-radius: 8px;
   cursor: pointer;
   font-size: 16px;
+}
+
+/*********************************************
+     Edit title page styling
+*********************************************/
+
+.mask {
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  margin-top: 0px;
+  margin-left: 0px;
+  padding-top: 25px;
+}
+
+.edit_movie {
+  background-color: #fff;
+  border: 2px solid gray;
+  border-radius: 10px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  margin: -20px auto 0px auto;
+  padding: 5px;
+  width: 400px;
+}
+
+.edit_movie h3 {
+color: #2AAFC7;
+font-size: 24px;
+text-align: center;
+margin: 10px 0px;
+}
+
+.edit_movie h4 {
+  margin: 10px 5px;
+  color: #2AAFC7;
+}
+
+.edit_movie input {
+  height: 30px;
+  border-radius: 10px;
+  margin: 0px 5px;
+}
+
+.edit_movie input::placeholder {
+  color: #F6A293;
+  font-size: 15px;
+  text-align: center;
+}
+
+.edit_movie button {
+  background-color: #2AAFC7;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px;
+  height: 30px;
+  margin: 10px;
+  width: 95%;
+}
+
+.back_button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.back_button a {
+  color: white;
+  font-size: 24px;
+  margin: 20px;
+  padding: 10px;
+  text-decoration: none;
 }

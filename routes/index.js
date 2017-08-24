@@ -50,6 +50,7 @@ router.post("/create", function(req, res) {
   res.redirect("/");
 });
 
+
 ///////////////////////////////////////////////
 
 router.post("/remove/:id", function(req, res) {
@@ -73,8 +74,18 @@ router.post("/remove/:id", function(req, res) {
 
   res.redirect("/");
 });
+///////////////////////////////////////////////
 
+router.post("/edit/:id", function(req, res) {
+let reqId = req.params.id;
+let newId = reqId.substr(1);
 
+const index = results.findIndex(item => item.id === newId)
+console.log("index: ", index);
+console.log("results[req.params.id]: ", req.params.id);
+
+  res.render("movie", {singleMovie: results[index], movies: results})
+});
 
 
 

@@ -1,3 +1,5 @@
+
+<h1 id="main_title"><a href="/">Movie Database</a></h1>
 <form class="entryForm" action="/create" method="post">
   <input type="text" name="title" placeholder="Movie Title" autofocus>
   <input type="text" name="year" placeholder="Year of release">
@@ -23,7 +25,7 @@
     <p class="director">Director: {{director}}</p>
     {{/mainCast}}
     <div class="links">
-      <form class="edit_container" action="/edit" method="post">
+      <form class="edit_container" action="/edit/:{{id}}" method="post">
         <button class="edit_link" type="submit" name={{name}}>Edit</button>
       </form>
       <form class="delete_container" action="/remove/:{{id}}" method="post">
