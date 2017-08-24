@@ -1,0 +1,151 @@
+body {
+  background-color: #fff;
+  font-family: sans-serif;
+}
+
+#main_title {
+  text-align: center;
+  font-size: 32px;
+  margin-top: 25px;
+}
+
+#main_title a {
+  color: #2AAFC7;
+  text-decoration: none;
+}
+
+.container {
+  display: flex;
+}
+
+.entryForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+  margin: 20px;
+  /*position: fixed;*/
+}
+
+.entryForm input {
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  font-size: 24px;
+  text-align: center;
+  color: #F6A293;
+}
+
+input::placeholder {
+  color: #2AAFC7;
+}
+
+.entryForm button {
+  width: 100%;
+  font-size: 24px;
+  color: white;
+  border-radius: 20px;
+  border: none;
+  background-color: #2AAFC7;
+  padding: 15px 0px;
+  text-align: center;
+  cursor: pointer;
+}
+
+
+.movie_collection {
+  margin: 25px 30px 0px 30px;
+  display: flex;
+  flex-flow: row wrap;
+  height: 500px;
+  overflow: scroll;
+}
+
+.single_movie {
+  border: 2px solid gray;
+  border-radius: 10px;
+  flex-basis: 31%;
+  /*padding:  15px;*/
+  margin-left: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.movie_title {
+  color: #2AAFC7;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 0px;
+}
+
+.yearGenre {
+  display: flex;
+  justify-content: flex-start;
+  padding: 0px 10px;
+  margin-top: 0px;
+}
+
+.year {
+  color: #2AAFC7;
+  font-weight: 100;
+  margin-right: 20px;
+  margin-top: 0px;
+}
+
+.genre {
+  color: #2AAFC7;
+  font-weight: 100;
+  margin-top: 0px;
+}
+
+.characters {
+  color: gray;
+  padding-left: 10px;
+}
+
+.cast {
+  color: gray;
+  padding-left: 10px;
+}
+
+.director {
+  color: gray;
+  padding-left: 10px;
+}
+
+.links {
+  display: flex;
+  justify-content: space-around;
+}
+
+.edit_container, .delete_container {
+  flex-basis: 50%;
+}
+
+.edit_link {
+  border: none;
+  text-decoration: none;
+  color: white;
+  background-color: #2AAFC7;
+  width: 100%;
+  padding: 10px 0px;
+  text-align: center;
+  border-bottom-left-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.delete_link {
+  border: none;
+  text-decoration: none;
+  color: white;
+  background-color: #F6A293;
+  width: 100%;
+  padding: 10px 0px;
+  text-align: center;
+  border-bottom-right-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}

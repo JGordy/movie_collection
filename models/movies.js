@@ -9,19 +9,17 @@ const movieSchema = new Schema ({
   name: {type: String, required: true, unique: true},
   yearReleased: {
     type: Number,
-    validate: [function(year) {
-      const yearLength = year.length
-      return yearLength === 4;
-    min: [1900, "Only movies after 1900 count"];
-    }]
+    // validate: [function(year) {
+    //   const yearLength = year.length
+    //   return yearLength === 4;
+    // }],
+    min: [1900, "Only movies after 1900 count"]
   },
   characters: [{
-    major: {type: Boolean, required: true},
-    minor: {type: Boolean}
+    character: {type: String, required: true},
   }],
-  actors: [{
-    mainActors: {type: String, required: true},
-    cameos: {type: String}
+  mainCast: [{
+    cast: {type: String, required: true},
   }],
   director: String,
   genre: {type: String, required: true}

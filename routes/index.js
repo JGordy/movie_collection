@@ -2,31 +2,77 @@ const express = require("express");
 const Movie   = require("../models/movies.js")
 const router  = express.Router();
 
-let data = [];
+let results = [];
+
+let getData;
+
+// getData();
+
+
+///////////////////////////////////////////////
 
 router.get("/", function(req, res) {
 
-  // creating an entry in the database
+   getData = function() {
+    Movie.find({})
+   .then(function(data) {
+     results = data;
+     res.render("collection", {movies: results})
+   })
+   .catch(function(err) {
+     console.log(err);
+   });
+  };
 
-  Movie.create({
-    name: "Lord of the Rings: The Fellowship of the Ring",
-    yearReleased: 2001,
-    characters: "Frodo Baggins",
-    actors: "Elijah Wood",
-    director: "Peter Jackson",
-    genre: "Fantasy"
-  });
-  res.render("collection", )
+ getData();
+  // res.render("collection", {movies: results})
 });
 
+///////////////////////////////////////////////
+
+router.post("/create", function(req, res) {
 
 
+  Movie.create({
+    name: req.body.title,
+    yearReleased: req.body.year,
+    characters: [{
+      character: req.body.character,
+    }],
+    mainCast: [{
+      cast: req.body.cast
+    }],
+    director: req.body.director,
+    genre: req.body.genre
+  });
 
 
+  res.redirect("/");
+});
+
+///////////////////////////////////////////////
+
+router.post("/remove/:id", function(req, res) {
+
+  let reqId = req.params.id;
+  let newId = reqId.substr(1);
+  console.log("newId: ", newId);
+  console.log("req.params.id: ", reqId);
 
 
+  Movie.remove({ _id: newId }, function(err) {
+      if (!err) {
+              console.log("Yay");;
+      }
+      else {
+              console.log(err);;
+      }
+  });
 
+  getData();
 
+  res.redirect("/");
+});
 
 
 

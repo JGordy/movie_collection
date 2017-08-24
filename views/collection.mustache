@@ -1,1 +1,35 @@
-<h1>YAY!</h1>
+<form class="entryForm" action="/create" method="post">
+  <input type="text" name="title" placeholder="Movie Title" autofocus>
+  <input type="text" name="year" placeholder="Year of release">
+  <input type="text" name="character" placeholder="Characters">
+  <input type="text" name="cast" placeholder="Cast">
+  <input type="text" name="director" placeholder="Director">
+  <input type="text" name="genre" placeholder="Genre">
+  <button type="submit" name="button">Submit</button>
+</form>
+<div class="movie_collection">
+  {{#movies}}
+  <div class="single_movie" id="{{id}}">
+    <h2 class="movie_title">{{name}}</h2>
+    <div class="yearGenre">
+      <h3 class="year">{{yearReleased}}</h3>
+      <h3 class="genre">{{genre}}</h3>
+    </div>
+    {{#characters}}
+    <h3 class="characters">{{character}}</h3>
+    {{/characters}}
+    {{#mainCast}}
+    <p class="cast">{{cast}}</p>
+    <p class="director">Director: {{director}}</p>
+    {{/mainCast}}
+    <div class="links">
+      <form class="edit_container" action="/edit" method="post">
+        <button class="edit_link" type="submit" name={{name}}>Edit</button>
+      </form>
+      <form class="delete_container" action="/remove/:{{id}}" method="post">
+        <button class="delete_link" type="submit">Delete</button>
+      </form>
+    </div>
+  </div>
+  {{/movies}}
+</div>
