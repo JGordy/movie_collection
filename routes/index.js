@@ -80,88 +80,47 @@ router.post("/update/:id", function(req, res) {
   console.log("Get an id part 2: ", req.body);
 
   let tempId = req.params.id;
-  let newMovieData = req.body;
   let index = results.findIndex(item => item.id === tempId )
-
+  let movieData = {};
 // name update //
   if (req.body.name) {
-    Movie.updateOne({_id: tempId},
-      {$set:  {"name": req.body.name}})
-    .then(function(data) {
-      console.log("Movie title update: ", data);
-      next();
-    })
-    .catch(function(err) {
-      console.log("Movie title update: ", err);
-      next();
-    })
+    movieData.name = req.body.name;
   };
 // year released update //
-  if(req.body.year) {
-    Movie.updateOne({_id: tempId},
-      {$set: {"yearReleased": req.body.year}})
-    .then(function(data) {
-      console.log("Year Released update: ", data);
-      next();
-    })
-    .catch(function(err) {
-      console.log("Year Released update: ", err);
-      next();
-    })
+  if (req.body.year) {
+    movieData.yearReleased = req.body.year;
   };
 // genre update //
-  if(req.body.genre) {
-    Movie.updateOne({_id: tempId},
-      {$set: {"genre": req.body.genre}})
-    .then(function(data) {
-      console.log("Genre update: ", data);
-      next();
-    })
-    .catch(function(err) {
-      console.log("Genre update: ", err);
-      next();
-    })
+  if (req.body.genre) {
+    movieData.genre = req.body.genre;
   };
 // character updates //
-  if(req.body.character) {
-    Movie.updateOne({_id: tempId},
-      {$set: {"characters": {"character": req.body.character}}})
-    .then(function(data) {
-      console.log("characters update: ", data);
-      next();
-    })
-    .catch(function(err) {
-      console.log("characters update: ", err);
-      next();
-    })
+  if (req.body.characters) {
+    movieData.characters = {"character": req.body.characters};
   };
 // cast update //
-  if(req.body.cast) {
-    Movie.updateOne({_id: tempId},
-      {$set: {"mainCast": {"cast": req.body.cast}}})
-    .then(function(data) {
-      console.log("cast update: ", data);
-      next();
-    })
-    .catch(function(err) {
-      console.log("cast update: ", err);
-      next();
-    })
+  if (req.body.cast) {
+    movieData.mainCast = {"cast": req.body.cast};
   };
 // director update //
-if(req.body.director) {
-  Movie.updateOne({_id: tempId},
-    {$set: {"director": req.body.director}})
-  .then(function(data) {
-    console.log("director update: ", data);
-    next();
-  })
-  .catch(function(err) {
-    console.log("director update: ", err);
-    next();
-  })
-};
+  if (req.body.director) {
+    movieData.director = req.body.director;
+  };
 
+console.log(movieData);
+//////////////////////
+Movie.update({_id: tempId},
+  {$set: movieData})
+.then(function(data) {
+  console.log("director update: ", data);
+  next();
+})
+.catch(function(err) {
+  console.log("director update: ", err);
+  next();
+})
+
+//////////////////////
   res.redirect("/");
 });
 
