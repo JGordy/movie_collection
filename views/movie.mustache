@@ -11,23 +11,23 @@
       <div class="back_button">
         <p><a href="/">X</a></p>
       </div>
-      <form class="edit_movie" action="/update" method="post">
+      <form class="edit_movie" action="/update/{{id}}" method="post">
         <h3>{{name}}</h3>
-        <input type="text" name="name" placeholder="Change title">
+        <input type="text" name="name" placeholder="Change title" autofocus>
         <h4>{{yearReleased}}</h4>
-        <input type="text" name="" placeholder="Year Released">
+        <input type="text" name="year" placeholder="Year Released">
         <h4>{{genre}}</h4>
-        <input type="text" name="" placeholder="Genre">
+        <input type="text" name="genre" placeholder="Genre">
         {{#characters}}
         <h4>{{character}}</h4>
         {{/characters}}
-        <input type="text" name="" placeholder="Characters">
+        <input type="text" name="characters" placeholder="Characters">
         {{#mainCast}}
         <h4>{{cast}}</h4>
         {{/mainCast}}
-        <input type="text" name="" placeholder="Cast">
+        <input type="text" name="cast" placeholder="Cast">
         <h4>{{director}}</h4>
-        <input type="text" name="" placeholder="Director">
+        <input type="text" name="director" placeholder="Director">
         <button type="submit" name="button">Save Changes</button>
       </form>
     </div>

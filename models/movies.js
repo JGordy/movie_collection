@@ -21,7 +21,7 @@ const movieSchema = new Schema ({
   mainCast: [{
     cast: {type: String, required: true},
   }],
-  director: String,
+  director: {type: String},
   genre: {type: String, required: true}
 });
 

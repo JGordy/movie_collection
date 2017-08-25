@@ -205,7 +205,10 @@ margin: 10px 0px;
 .edit_movie input {
   height: 30px;
   border-radius: 10px;
+  color: gray;
+  font-size: 16px;
   margin: 0px 5px;
+  text-align: center;
 }
 
 .edit_movie input::placeholder {
