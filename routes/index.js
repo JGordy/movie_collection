@@ -10,7 +10,6 @@ let getData;
 
 router.get("/", function(req, res) {
 
-   getData = function() {
     Movie.find({})
    .then(function(data) {
      results = data;
@@ -19,9 +18,6 @@ router.get("/", function(req, res) {
    .catch(function(err) {
      console.log(err);
    });
-  };
-
- getData();
 });
 
 ///////////////////////////////////////////////
@@ -165,7 +161,6 @@ if(req.body.director) {
     next();
   })
 };
-
 
   res.redirect("/");
 });
